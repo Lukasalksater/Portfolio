@@ -167,6 +167,10 @@ footer{ padding:1.5rem 6vw; font-size:0.8rem; color:var(--muted); }
 
 .detail-section p{ font-size:1.05rem; max-width:65ch; line-height:1.75; margin-bottom:1rem; }
 
+.detail-section p a{ color:var(--accent); text-decoration:underline; }
+
+.detail-section p a:hover{ opacity:0.8; }
+
 .detail-section ul{ margin:0 0 1rem 1.2rem; color:var(--muted); }
 
 .detail-section li{ margin-bottom:0.4rem; }

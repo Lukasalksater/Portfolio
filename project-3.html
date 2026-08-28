@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project 3 – Lukas Alksäter</title>
   <link rel="stylesheet" href="style.css">
+    <script>
+    // Apply saved theme immediately to avoid a flash of the wrong theme
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.classList.add("light");
+    }
+  </script>
 </head>
 <body>
 

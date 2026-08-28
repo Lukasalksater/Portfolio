@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+# Körs varje gång kod hamnar på main-grenen —
+# t.ex. när en godkänd Pull Request mergas in.
+on:
+  push:
+    branches: ["main"]
+
+  # Gör det möjligt att köra workflowen manuellt från Actions-fliken också
+  workflow_dispatch:
+
+# Rättigheter som krävs för att kunna deploya till Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Tillåt bara en deployment åt gången
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut koden
+        uses: actions/checkout@v4
+
+      - name: Förbered Pages
+        uses: actions/configure-pages@v5
+
+      - name: Ladda upp filerna som artefakt
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploya till GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

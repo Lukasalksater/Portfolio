@@ -6,7 +6,7 @@
   --muted:#5c6b67;
 }
 
-body.light{
+html.light{
   --bg:#0f1613;
   --ink:#f4f4f2;
   --card:#1c2925;

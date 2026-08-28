@@ -92,17 +92,33 @@ h2{ font-size:2rem; }
 .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
 
 .card{
+  display:block;
   background:var(--card);
   padding:2rem 1.5rem;
   border-radius:12px;
-  transition:transform .2s;
+  transition:transform .2s, box-shadow .2s;
+  text-decoration:none;
+  color:inherit;
 }
 
-.card:hover{ transform:translateY(-4px); }
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 24px rgba(0,0,0,0.08);
+}
 
 .card h3{ color:var(--accent); margin-bottom:0.5rem; }
 
-.card p{ color:var(--muted); font-size:0.95rem; }
+.card p{ color:var(--muted); font-size:0.95rem; margin-bottom:1rem; }
+
+.card .read-more{
+  font-size:0.85rem;
+  font-weight:bold;
+  color:var(--ink);
+  transition:transform .2s;
+  display:inline-block;
+}
+
+.card:hover .read-more{ transform:translateX(4px); }
 
 #contact{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:2rem; }
 
@@ -119,6 +135,52 @@ h2{ font-size:2rem; }
 }
 
 footer{ padding:1.5rem 6vw; font-size:0.8rem; color:var(--muted); }
+
+/* Project detail pages */
+.back-link{
+  display:inline-block;
+  margin:1.5rem 6vw 0;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:0.9rem;
+}
+
+.back-link:hover{ color:var(--accent); }
+
+.project-hero{ padding:2rem 6vw 3rem; border-top:none; }
+
+.project-hero .tag{
+  color:var(--accent);
+  font-size:0.85rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:0.75rem;
+  display:block;
+}
+
+.project-hero h1{
+  font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:900;
+  letter-spacing:-0.02em;
+  line-height:1.05;
+}
+
+.detail-section p{ font-size:1.05rem; max-width:65ch; line-height:1.75; margin-bottom:1rem; }
+
+.detail-section ul{ margin:0 0 1rem 1.2rem; color:var(--muted); }
+
+.detail-section li{ margin-bottom:0.4rem; }
+
+.project-nav{
+  display:flex;
+  justify-content:space-between;
+  padding:2rem 6vw 4rem;
+  font-size:0.9rem;
+}
+
+.project-nav a{ color:var(--ink); text-decoration:none; }
+
+.project-nav a:hover{ color:var(--accent); }
 
 @media (max-width:760px){
   .hero{ grid-template-columns:1fr; }
